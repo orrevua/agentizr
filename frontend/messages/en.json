@@ -1,0 +1,119 @@
+{
+  "common": {
+    "appName": "Agentizr",
+    "tagline": "One form. Files for every coding agent.",
+    "preview": "Preview",
+    "generate": "Generate (.zip)",
+    "generating": "Generating...",
+    "previewing": "Previewing...",
+    "copy": "Copy",
+    "copied": "Copied",
+    "remove": "Remove",
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "close": "Close"
+  },
+  "form": {
+    "sectionPlatforms": "Platforms",
+    "sectionScope": "Scope",
+    "sectionOutput": "Output Mode",
+    "sectionDefinition": "Agent Definition",
+    "name": "Name",
+    "namePlaceholder": "e.g. Security Reviewer",
+    "description": "Description",
+    "descriptionPlaceholder": "Short one-line summary",
+    "slug": "Slug",
+    "instructions": "Instructions",
+    "instructionsPlaceholder": "You are a security expert. Always check for SQL injection...",
+    "tools": "Tools",
+    "toolsPlaceholder": "Select tools",
+    "toolsEmpty": "No tools match",
+    "mcpServers": "MCP Servers",
+    "mcpPlaceholder": "Select MCP servers",
+    "mcpEmpty": "No MCP servers match",
+    "activation": "Activation",
+    "model": "Model",
+    "memory": "Memory",
+    "memoryClaudeOnly": "Claude Code only",
+    "globs": "Apply-to Globs",
+    "globsPlaceholder": "src/auth/**/*.ts, lib/**/*.py (Enter to add)",
+    "charCount": "{count} / {max}",
+    "outputLanguage": "Output Language",
+    "modelInherit": "Inherit"
+  },
+  "platforms": {
+    "claude-code": "Claude Code",
+    "copilot": "GitHub Copilot",
+    "codex": "OpenAI Codex",
+    "gemini": "Gemini CLI",
+    "cursor": "Cursor",
+    "windsurf": "Windsurf"
+  },
+  "scope": {
+    "project": "Project",
+    "global": "Global"
+  },
+  "activation": {
+    "always": "Always",
+    "auto": "Auto",
+    "on_demand": "On Demand",
+    "manual": "Manual"
+  },
+  "memory": {
+    "project": "Project",
+    "user": "User",
+    "local": "Local",
+    "none": "None"
+  },
+  "output": {
+    "perPlatform": "Per Platform"
+  },
+  "outputLanguage": {
+    "en": "English",
+    "pt-br": "Portuguese (Brazil)"
+  },
+  "preview": {
+    "empty": "Click Preview to generate files",
+    "warnings": "Warnings",
+    "files": "Files",
+    "noFiles": "No files generated yet"
+  },
+  "presets": {
+    "button": "Load preset",
+    "dialogTitle": "Choose a preset",
+    "dialogDescription": "Start from a curated template. Selecting one will replace the current form values."
+  },
+  "errors": {
+    "previewFailed": "Preview failed",
+    "generateFailed": "Generate failed",
+    "validationFailed": "Please fix the highlighted fields"
+  },
+  "workspace": {
+    "agentsSection": "Agents",
+    "addAgent": "Add agent",
+    "removeAgent": "Remove agent",
+    "renameAgent": "Rename agent",
+    "maxAgentsReached": "Maximum 10 agents reached",
+    "untitledAgent": "Agent {n}",
+    "hasErrors": "Has validation errors",
+    "skills": {
+      "title": "Skills ({count})",
+      "add": "Add skill",
+      "empty": "No skills yet",
+      "platforms": "Platforms",
+      "namePlaceholder": "e.g. Repo Auditor",
+      "scaffoldDirs": "Scaffold",
+      "scaffoldDirsLabel": "Create starter directories"
+    }
+  },
+  "workflow": {
+    "title": "Workflow",
+    "empty": "Add another agent to define handoffs",
+    "addAnother": "Add agent",
+    "mobileNotice": "Open on desktop to edit the workflow",
+    "edgeCondition": {
+      "placeholder": "Set condition",
+      "custom": "Type a custom condition"
+    }
+  }
+}

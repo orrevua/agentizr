@@ -1,0 +1,119 @@
+{
+  "common": {
+    "appName": "Agentizr",
+    "tagline": "Um formulário. Arquivos para todo agente de código.",
+    "preview": "Pré-visualizar",
+    "generate": "Gerar (.zip)",
+    "generating": "Gerando...",
+    "previewing": "Pré-visualizando...",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "remove": "Remover",
+    "loading": "Carregando...",
+    "cancel": "Cancelar",
+    "close": "Fechar"
+  },
+  "form": {
+    "sectionPlatforms": "Plataformas",
+    "sectionScope": "Escopo",
+    "sectionOutput": "Modo de Saída",
+    "sectionDefinition": "Definição do Agente",
+    "name": "Nome",
+    "namePlaceholder": "ex.: Revisor de Segurança",
+    "description": "Descrição",
+    "descriptionPlaceholder": "Resumo curto de uma linha",
+    "slug": "Identificador",
+    "instructions": "Instruções",
+    "instructionsPlaceholder": "Você é um especialista em segurança. Sempre verifique SQL injection...",
+    "tools": "Ferramentas",
+    "toolsPlaceholder": "Selecione as ferramentas",
+    "toolsEmpty": "Nenhuma ferramenta corresponde",
+    "mcpServers": "Servidores MCP",
+    "mcpPlaceholder": "Selecione os servidores MCP",
+    "mcpEmpty": "Nenhum servidor MCP corresponde",
+    "activation": "Ativação",
+    "model": "Modelo",
+    "memory": "Memória",
+    "memoryClaudeOnly": "Apenas Claude Code",
+    "globs": "Globs de Aplicação",
+    "globsPlaceholder": "src/auth/**/*.ts, lib/**/*.py (Enter para adicionar)",
+    "charCount": "{count} / {max}",
+    "outputLanguage": "Idioma de Saída",
+    "modelInherit": "Herdar"
+  },
+  "platforms": {
+    "claude-code": "Claude Code",
+    "copilot": "GitHub Copilot",
+    "codex": "OpenAI Codex",
+    "gemini": "Gemini CLI",
+    "cursor": "Cursor",
+    "windsurf": "Windsurf"
+  },
+  "scope": {
+    "project": "Projeto",
+    "global": "Global"
+  },
+  "activation": {
+    "always": "Sempre",
+    "auto": "Automática",
+    "on_demand": "Sob Demanda",
+    "manual": "Manual"
+  },
+  "memory": {
+    "project": "Projeto",
+    "user": "Usuário",
+    "local": "Local",
+    "none": "Nenhuma"
+  },
+  "output": {
+    "perPlatform": "Por Plataforma"
+  },
+  "outputLanguage": {
+    "en": "Inglês",
+    "pt-br": "Português (Brasil)"
+  },
+  "preview": {
+    "empty": "Clique em Pré-visualizar para gerar arquivos",
+    "warnings": "Avisos",
+    "files": "Arquivos",
+    "noFiles": "Nenhum arquivo gerado ainda"
+  },
+  "presets": {
+    "button": "Carregar predefinição",
+    "dialogTitle": "Escolha uma predefinição",
+    "dialogDescription": "Comece a partir de um modelo pronto. Ao selecionar, os valores atuais do formulário serão substituídos."
+  },
+  "errors": {
+    "previewFailed": "Falha na pré-visualização",
+    "generateFailed": "Falha ao gerar",
+    "validationFailed": "Corrija os campos destacados"
+  },
+  "workspace": {
+    "agentsSection": "Agentes",
+    "addAgent": "Adicionar agente",
+    "removeAgent": "Remover agente",
+    "renameAgent": "Renomear agente",
+    "maxAgentsReached": "Máximo de 10 agentes atingido",
+    "untitledAgent": "Agente {n}",
+    "hasErrors": "Possui erros de validação",
+    "skills": {
+      "title": "Habilidades ({count})",
+      "add": "Adicionar habilidade",
+      "empty": "Nenhuma habilidade ainda",
+      "platforms": "Plataformas",
+      "namePlaceholder": "ex.: Auditor de Repositório",
+      "scaffoldDirs": "Scaffold",
+      "scaffoldDirsLabel": "Criar diretórios iniciais"
+    }
+  },
+  "workflow": {
+    "title": "Fluxo",
+    "empty": "Adicione outro agente para definir transições",
+    "addAnother": "Adicionar agente",
+    "mobileNotice": "Abra no desktop para editar o fluxo",
+    "edgeCondition": {
+      "placeholder": "Definir condição",
+      "custom": "Digite uma condição personalizada"
+    }
+  }
+}
