@@ -33,7 +33,7 @@ jobs:
         run: uv run pytest
 
       - name: Export OpenAPI
-        run: uv run python scripts/export_openapi.py ../frontend/src/test/fixtures/openapi.json
+        run: uv run python -m scripts.export_openapi ../frontend/src/test/fixtures/openapi.json
 
       - name: Upload OpenAPI artifact
         uses: actions/upload-artifact@v4
