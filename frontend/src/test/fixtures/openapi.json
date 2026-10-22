@@ -1,0 +1,722 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Agentizr API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/v1/catalog/tools": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Catalog Tools",
+        "operationId": "catalog_tools_api_v1_catalog_tools_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Catalog Tools Api V1 Catalog Tools Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/catalog/models": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Catalog Models",
+        "operationId": "catalog_models_api_v1_catalog_models_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Catalog Models Api V1 Catalog Models Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/catalog/mcp-servers": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Catalog Mcp-Servers",
+        "operationId": "catalog_mcp_servers_api_v1_catalog_mcp_servers_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Catalog Mcp Servers Api V1 Catalog Mcp Servers Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/catalog/presets": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Catalog Presets",
+        "operationId": "catalog_presets_api_v1_catalog_presets_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Catalog Presets Api V1 Catalog Presets Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/catalog/handoff-conditions": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Catalog Handoff-Conditions",
+        "operationId": "catalog_handoff_conditions_api_v1_catalog_handoff_conditions_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Catalog Handoff Conditions Api V1 Catalog Handoff Conditions Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/generate": {
+      "post": {
+        "tags": [
+          "generate"
+        ],
+        "summary": "Generate",
+        "operationId": "generate_api_v1_generate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspaceDefinition"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Api V1 Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/preview": {
+      "post": {
+        "tags": [
+          "generate"
+        ],
+        "summary": "Preview",
+        "operationId": "preview_api_v1_preview_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspaceDefinition"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActivationMode": {
+        "type": "string",
+        "enum": [
+          "always",
+          "auto",
+          "on_demand",
+          "manual"
+        ],
+        "title": "ActivationMode"
+      },
+      "AgentDefinition": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "title": "Slug"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 5,
+            "title": "Description"
+          },
+          "instructions": {
+            "type": "string",
+            "maxLength": 50000,
+            "minLength": 10,
+            "title": "Instructions"
+          },
+          "tools": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tools"
+          },
+          "mcpServers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mcpservers"
+          },
+          "applyToGlobs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Applytoglobs"
+          },
+          "activationMode": {
+            "$ref": "#/components/schemas/ActivationMode",
+            "default": "auto"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model",
+            "default": "inherit"
+          },
+          "reasoningEffort": {
+            "$ref": "#/components/schemas/ReasoningEffort",
+            "default": "medium"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Scope",
+            "default": "project"
+          },
+          "memory": {
+            "$ref": "#/components/schemas/Memory",
+            "default": "project"
+          },
+          "targetPlatforms": {
+            "items": {
+              "$ref": "#/components/schemas/Platform"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Targetplatforms"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "slug",
+          "description",
+          "instructions",
+          "targetPlatforms"
+        ],
+        "title": "AgentDefinition"
+      },
+      "GeneratedFile": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "title": "Path"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "platform": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Platform"
+              },
+              {
+                "type": "string",
+                "const": "universal"
+              }
+            ],
+            "title": "Platform"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "toml",
+              "yaml",
+              "text"
+            ],
+            "title": "Language"
+          }
+        },
+        "type": "object",
+        "required": [
+          "path",
+          "content",
+          "platform",
+          "language"
+        ],
+        "title": "GeneratedFile"
+      },
+      "GenerationResult": {
+        "properties": {
+          "files": {
+            "items": {
+              "$ref": "#/components/schemas/GeneratedFile"
+            },
+            "type": "array",
+            "title": "Files"
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "files"
+        ],
+        "title": "GenerationResult"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Memory": {
+        "type": "string",
+        "enum": [
+          "project",
+          "user",
+          "local",
+          "none"
+        ],
+        "title": "Memory"
+      },
+      "OutputLanguage": {
+        "type": "string",
+        "enum": [
+          "en",
+          "pt-br"
+        ],
+        "title": "OutputLanguage"
+      },
+      "Platform": {
+        "type": "string",
+        "enum": [
+          "claude-code",
+          "copilot",
+          "codex",
+          "gemini",
+          "cursor",
+          "windsurf"
+        ],
+        "title": "Platform"
+      },
+      "Position": {
+        "properties": {
+          "x": {
+            "type": "number",
+            "title": "X"
+          },
+          "y": {
+            "type": "number",
+            "title": "Y"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "x",
+          "y"
+        ],
+        "title": "Position"
+      },
+      "ReasoningEffort": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "title": "ReasoningEffort"
+      },
+      "Scope": {
+        "type": "string",
+        "enum": [
+          "project",
+          "global"
+        ],
+        "title": "Scope"
+      },
+      "SkillDefinition": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "title": "Slug"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 5,
+            "title": "Description"
+          },
+          "instructions": {
+            "type": "string",
+            "maxLength": 50000,
+            "minLength": 10,
+            "title": "Instructions"
+          },
+          "platforms": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "claude-code",
+                "gemini"
+              ]
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Platforms"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Scope",
+            "default": "project"
+          },
+          "scaffoldDirs": {
+            "type": "boolean",
+            "title": "Scaffolddirs",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "slug",
+          "description",
+          "instructions",
+          "platforms"
+        ],
+        "title": "SkillDefinition"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "Warning": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "platform": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Platform"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "Warning"
+      },
+      "Workflow": {
+        "properties": {
+          "nodes": {
+            "items": {
+              "$ref": "#/components/schemas/WorkflowNode"
+            },
+            "type": "array",
+            "title": "Nodes"
+          },
+          "edges": {
+            "items": {
+              "$ref": "#/components/schemas/WorkflowEdge"
+            },
+            "type": "array",
+            "title": "Edges"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Workflow"
+      },
+      "WorkflowEdge": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Id"
+          },
+          "source": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "title": "Source"
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "title": "Target"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 120
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          },
+          "condition": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Condition"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "target"
+        ],
+        "title": "WorkflowEdge"
+      },
+      "WorkflowNode": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "title": "Id"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "position"
+        ],
+        "title": "WorkflowNode"
+      },
+      "WorkspaceDefinition": {
+        "properties": {
+          "agents": {
+            "items": {
+              "$ref": "#/components/schemas/AgentDefinition"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "minItems": 1,
+            "title": "Agents"
+          },
+          "skills": {
+            "items": {
+              "$ref": "#/components/schemas/SkillDefinition"
+            },
+            "type": "array",
+            "title": "Skills"
+          },
+          "workflow": {
+            "$ref": "#/components/schemas/Workflow"
+          },
+          "outputLanguage": {
+            "$ref": "#/components/schemas/OutputLanguage",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "agents"
+        ],
+        "title": "WorkspaceDefinition"
+      }
+    }
+  }
+}
