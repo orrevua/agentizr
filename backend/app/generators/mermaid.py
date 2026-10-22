@@ -24,10 +24,7 @@ def has_cycle(workflow: Workflow) -> bool:
         color[node] = BLACK
         return False
 
-    for src in adj:
-        if color.get(src, WHITE) == WHITE and visit(src):
-            return True
-    return False
+    return any(color.get(src, WHITE) == WHITE and visit(src) for src in adj)
 
 
 def render_mermaid(workflow: Workflow, agents: list[AgentDefinition]) -> str:

@@ -1,4 +1,5 @@
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 from app.domain.agent import AgentDefinition
 from app.domain.enums import ActivationMode, OutputLanguage, Platform

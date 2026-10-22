@@ -13,22 +13,25 @@ class Persona:
     rules: tuple[str, ...]
 
 
+def _bullets(items: tuple[str, ...]) -> str:
+    return "\n".join(f"- {x}" for x in items)
+
+
 def _render(p: Persona) -> str:
-    bullets = lambda items: "\n".join(f"- {x}" for x in items)
     return "\n\n".join(
         [
             p.identity,
             "## Philosophy",
-            bullets(p.philosophy),
+            _bullets(p.philosophy),
             "## How You Work",
             "### Before Writing Code",
-            bullets(p.before),
+            _bullets(p.before),
             "### While Writing Code",
-            bullets(p.during),
+            _bullets(p.during),
             "### After Writing Code",
-            bullets(p.after),
+            _bullets(p.after),
             "## Absolute Rules",
-            bullets(p.rules),
+            _bullets(p.rules),
         ]
     )
 

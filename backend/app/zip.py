@@ -1,6 +1,6 @@
 import io
 import zipfile
-from typing import Iterator
+from collections.abc import Iterator
 
 from app.domain.generated import GeneratedFile
 

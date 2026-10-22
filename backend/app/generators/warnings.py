@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 from app.domain.agent import AgentDefinition
 from app.domain.enums import ActivationMode, Platform, Scope

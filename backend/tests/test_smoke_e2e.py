@@ -48,14 +48,14 @@ def test_preview_and_generate_share_paths(client, tmp_path):
     preview = client.post("/api/v1/preview", json=_preset_payload())
     assert preview.status_code == 200
     preview_paths = {f["path"] for f in preview.json()["files"]}
-    assert _EXPECTED_PATHS <= preview_paths
+    assert preview_paths >= _EXPECTED_PATHS
 
     download = client.post("/api/v1/generate", json=_preset_payload())
     assert download.status_code == 200
     with zipfile.ZipFile(io.BytesIO(download.content)) as zf:
         zip_paths = set(zf.namelist())
         zf.extractall(tmp_path)
-    assert _EXPECTED_PATHS <= zip_paths
+    assert zip_paths >= _EXPECTED_PATHS
 
     for p in _EXPECTED_PATHS:
         assert (tmp_path / p).exists()
